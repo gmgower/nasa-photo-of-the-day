@@ -13,13 +13,16 @@ function App() {
   
   useEffect(() => {
     console.log('first render')
-    axios.get("https://api.nasa.gov/planetary/apod?api_key=7o9y0elrQx0qja0uhzWmiNG7yVYVrL9k3Ac0yJ0J.")
+    axios.get("https://api.nasa.gov/planetary/apod?api_key=7o9y0elrQx0qja0uhzWmiNG7yVYVrL9k3Ac0yJ0J")
       .then(res => {
         console.log(res.data);
         // setTitle(res.data.title)
         // setExplanation(res.data.explanation)
         // setUrl(res.data.url)
         setData(res.data)
+      })
+      .catch(err => {
+        console.log('Site not available.')
       })
   }, [])
       console.log('last render')
