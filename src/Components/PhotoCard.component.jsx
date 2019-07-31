@@ -1,9 +1,11 @@
 import React from 'react'
 
-function PhotoCard() {
+function PhotoCard(props) {
     return (
         <div>
-            <h1>Hello</h1>
+            <h2>{props.title}</h2>
+            <img src={props.url} alt="" />
+            <p>{props.explanation}</p>
         </div>
     )
 }
