@@ -6,23 +6,23 @@ import PhotoCard from './Components/PhotoCard.component';
 import axios from 'axios';
 
 function App() {
-  const [title, setTitle] = useState('') 
-  const [url, setUrl] = useState('')
-  const [explanation, setExplanation] = useState('')
+  const [data, setData] = useState({})
+  // const [title, setTitle] = useState('') 
+  // const [url, setUrl] = useState('')
+  // const [explanation, setExplanation] = useState('')
   
   useEffect(() => {
     console.log('first render')
     axios.get("https://api.nasa.gov/planetary/apod?api_key=7o9y0elrQx0qja0uhzWmiNG7yVYVrL9k3Ac0yJ0J.")
       .then(res => {
         console.log(res.data);
-        setTitle(res.data.title)
-        setExplanation(res.data.explanation)
-        setUrl(res.data.url)
+        // setTitle(res.data.title)
+        // setExplanation(res.data.explanation)
+        // setUrl(res.data.url)
+        setData(res.data)
       })
   }, [])
-
-
-      console.log('last')
+      console.log('last render')
 
 
   return (
@@ -32,9 +32,10 @@ function App() {
         app! Have fun !
       </p>
       <PhotoCard
-        title={title}
-        url={url}
-        explanation={explanation}
+        title={data.title}
+        url={data.url}
+        explanation={data.explanation}
+        date={data.date}
       />
     </div>
   );
