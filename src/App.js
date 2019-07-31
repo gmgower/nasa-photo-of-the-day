@@ -7,16 +7,19 @@ import axios from 'axios';
 
 function App() {
   const [title, setTitle] = useState('') 
-  // const [url, setUrl] = useState('')
-  // const [explanation, setExplanation] = useState('')
+  const [url, setUrl] = useState('')
+  const [explanation, setExplanation] = useState('')
   
 
     console.log('first render')
-    axios.get("https://api.nasa.gov/planetary/apod?api_key=NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo..")
+    axios.get("https://api.nasa.gov/planetary/apod?api_key=NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo")
       .then(res => {
         console.log(res.data);
         setTitle(res.data.title)
+        setExplanation(res.data.explanation)
+        setUrl(res.data.url)
       })
+      console.log('last')
 
 
   return (
@@ -27,8 +30,8 @@ function App() {
       </p>
       <PhotoCard
         title={title}
-        url='Placeholder url'
-        explanation='placeholder explanation'
+        url={url}
+        explanation={explanation}
       />
     </div>
   );
