@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 
 import PhotoCard from './Components/PhotoCard.component';
@@ -10,15 +10,18 @@ function App() {
   const [url, setUrl] = useState('')
   const [explanation, setExplanation] = useState('')
   
-
+  useEffect(() => {
     console.log('first render')
-    axios.get("https://api.nasa.gov/planetary/apod?api_key=NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo")
+    axios.get("https://api.nasa.gov/planetary/apod?api_key=7o9y0elrQx0qja0uhzWmiNG7yVYVrL9k3Ac0yJ0J.")
       .then(res => {
         console.log(res.data);
         setTitle(res.data.title)
         setExplanation(res.data.explanation)
         setUrl(res.data.url)
       })
+  }, [])
+
+
       console.log('last')
 
 
