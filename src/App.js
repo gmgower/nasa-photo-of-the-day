@@ -1,24 +1,35 @@
-import React from "react";
-import "./App.css";
+import React, {useState} from 'react';
+import './App.css';
 
-import PhotoCard from './Components/PhotoCard.component'
+import PhotoCard from './Components/PhotoCard.component';
 
 import axios from 'axios';
 
 function App() {
+  const [title, setTitle] = useState('') 
+  // const [url, setUrl] = useState('')
+  // const [explanation, setExplanation] = useState('')
+  
+
+    console.log('first render')
+    axios.get("https://api.nasa.gov/planetary/apod?api_key=NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo..")
+      .then(res => {
+        console.log(res.data);
+        setTitle(res.data.title)
+      })
+
 
   return (
-    <div className="App">
+    <div className='App'>
       <p>
         Read through the instructions in the README.md file to build your NASA
-        app! Have fun 🚀!
+        app! Have fun !
       </p>
-      <PhotoCard 
-          title="Placeholder title" 
-          url="Placeholder url"
-          explanation="placeholder explanation"
-          />
-    
+      <PhotoCard
+        title={title}
+        url='Placeholder url'
+        explanation='placeholder explanation'
+      />
     </div>
   );
 }
