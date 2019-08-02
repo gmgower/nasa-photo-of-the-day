@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import './App.css';
+import './App.scss';
 
-import PhotoCard from './Components/PhotoCard.component';
+import PhotoCard from './Components/PhotoCard/PhotoCard.component';
+import './Components/PhotoCard/PhotoCard.styles.scss'
 
 import axios from 'axios';
 
@@ -30,10 +31,6 @@ function App() {
 
   return (
     <div className='App'>
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun !
-      </p>
       <PhotoCard
         title={data.title}
         url={data.url}
