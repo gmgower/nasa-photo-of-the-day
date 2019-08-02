@@ -4,7 +4,7 @@ import './PhotoCard.styles.scss';
 
 import { Card, Image } from 'semantic-ui-react';
 
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 import { H2Styled, DateStyled, CardStyled } from './styled.component'
 
